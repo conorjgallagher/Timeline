@@ -1,0 +1,10 @@
+C:\Dev\xRMC\Timeline\Timeline\Plugins\bin\Debug\ILMerge.exe
+C:\Dev\xRMC\Timeline\Timeline\Plugins\bin\Debug\ILMerge.exe.config
+C:\Dev\xRMC\Timeline\Timeline\Plugins\bin\Debug\Timeline.Plugins_premerge.dll
+C:\Dev\xRMC\Timeline\Timeline\Plugins\bin\Debug\Timeline.Plugins_premerge.pdb
+C:\Dev\xRMC\Timeline\Timeline\Plugins\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Dev\xRMC\Timeline\Timeline\Plugins\bin\Debug\SeriousBit.Licensing.dll
+C:\Dev\xRMC\Timeline\Timeline\Plugins\obj\Debug\Plugins.csprojAssemblyReference.cache
+C:\Dev\xRMC\Timeline\Timeline\Plugins\obj\Debug\Plugins.csproj.CopyComplete
+C:\Dev\xRMC\Timeline\Timeline\Plugins\obj\Debug\Timeline.Plugins_premerge.dll
+C:\Dev\xRMC\Timeline\Timeline\Plugins\obj\Debug\Timeline.Plugins_premerge.pdb

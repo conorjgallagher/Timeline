@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Register xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/crm/2011/tools/pluginregistration">
+  <Solutions>
+    <Solution Assembly="Timeline.Plugins.dll" Id="f1f8b18a-ea61-e311-96db-080027eadcf2" IsolationMode="Sandbox" SourceType="Database">
+      <PluginTypes>
+        <Plugin Description="Plug-in for General Timeline Management" FriendlyName="TimelineManagement" Name="Timeline.Plugins.Timeline" Id="9d629bee-5d68-e411-a5fa-080027ac1123" TypeName="Timeline.Plugins.Timeline">
+          <Steps>
+            <clear />
+            <Step CustomConfiguration="" Name="TimelineManagement" Description="Pre-Operation of Timeline Update" Id="e84201df-ea61-e311-96db-080027eadcf2" MessageName="Update" Mode="Synchronous" PrimaryEntityName="xrmc_timelineconfiguration" Rank="1" SecureConfiguration="" Stage="PreInsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+          </Steps>
+        </Plugin>
+        <Plugin Description="Plug-in for Timeline Entities" FriendlyName="TimelineEntityPlugin" Name="Timeline.Plugins.TimelineEntityPlugin" Id="9e629bee-5d68-e411-a5fa-080027ac1123" TypeName="Timeline.Plugins.TimelineEntityPlugin">
+          <Steps>
+            <clear />
+            <Step CustomConfiguration="" Name="TimelineEntityPluginPreCreate" Description="Pre-Validation of Timeline Entity Create" Id="5dd92793-6867-e311-96db-080027eadcf2" MessageName="Create" Mode="Synchronous" PrimaryEntityName="xrmc_timelineentity" Rank="1" SecureConfiguration="" Stage="PreOutsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+            <Step CustomConfiguration="" Name="TimelineEntityLinkPluginPreCreate" Description="Pre-Validation of Timeline Entity Link Create" Id="60d92793-6867-e311-96db-080027eadcf2" MessageName="Create" Mode="Synchronous" PrimaryEntityName="xrmc_timelineentitylink" Rank="1" SecureConfiguration="" Stage="PreOutsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+            <Step CustomConfiguration="" Name="TimelineEntityPluginPreUpdate" Description="Pre-Validation of Timeline Entity Update" Id="b17ff8e4-1677-e311-abf7-080027eadcf2" MessageName="Update" Mode="Synchronous" PrimaryEntityName="xrmc_timelineentity" Rank="1" SecureConfiguration="" Stage="PreOutsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+            <Step CustomConfiguration="" Name="TimelineEntityLinkPluginPreUpdate" Description="Pre-Validation of Timeline Entity Link Update" Id="b47ff8e4-1677-e311-abf7-080027eadcf2" MessageName="Update" Mode="Synchronous" PrimaryEntityName="xrmc_timelineentitylink" Rank="1" SecureConfiguration="" Stage="PreOutsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+            <Step CustomConfiguration="" Name="TimelineEntityConfigurationPluginPostCreate" Description="Post-Operation of Timeline Configuration Create" Id="94f73206-de73-e311-abf7-080027eadcf2" MessageName="Create" Mode="Synchronous" PrimaryEntityName="xrmc_timelineconfiguration" Rank="1" SecureConfiguration="" Stage="PostOutsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+            <Step CustomConfiguration="" Name="TimelineEntityConfigurationPluginPostCreate" Description="Post-Operation of Timeline Configuration Update" Id="3da35f97-a587-e311-abf7-080027eadcf2" MessageName="Update" Mode="Synchronous" PrimaryEntityName="xrmc_timelineconfiguration" Rank="1" SecureConfiguration="" Stage="PostOutsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+          </Steps>
+        </Plugin>
+      </PluginTypes>
+    </Solution>
+  </Solutions>
+  <XamlWorkflows />
+</Register>

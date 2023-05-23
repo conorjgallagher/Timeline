@@ -1,0 +1,308 @@
+html, body {
+	padding: 0px;
+	margin: 0px;
+	font-family: Segoe UI,Tahoma,Arial;
+	font-size: 12px;
+}
+div.wrapper {
+	padding: 5px;
+	background: #fff;
+	font-weight: bold;
+}
+div.wrapper p span {
+	font-weight: normal;
+	color: #666666;
+}
+div.innerwrapper {
+	overflow:auto;
+	border:1px solid #e3e3e3;
+	padding: 5px;
+	background: #fff;
+}
+div.nobold {
+	font-weight: normal;
+}
+div.summaryinfo {
+	
+}
+div.summaryinfo span {
+	width: 100px;
+	font-weight: normal;	
+	display: inline-block;
+	color: #666666;
+}
+div.summaryinfo span.widelabel {
+	width: 150px;
+}
+div.summaryinfo span.decimal {
+	width: 100px;
+	text-align: right;
+}
+div.summaryinfo p, div.wrapper p {
+	padding: 3px 0;
+	margin: 0;
+	
+}
+.summaryinfo a {
+	color: #0072C6;
+	text-decoration: none;
+}
+.summaryinfo a:hover {
+	color: #0072C6;
+	text-decoration: underline;
+}
+a.user, a.systemuser {
+	background: url('/_imgs/ico_16_8.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.contact {
+	background: url('/_imgs/ico_16_2.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.lead {
+	background: url('/_imgs/ico_16_4.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.company, a.account {
+	background: url('/_imgs/ico_16_1.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.equipment {
+    background: url('/_imgs/ico_16_4000.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.queue {
+    background: url('/_imgs/ico_16_2020.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.site {
+    background: url('/_imgs/ico_16_4009.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.service {
+    background: url('/_imgs/ico_16_4001.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.campaign {
+    background: url('/_imgs/ico_16_4400.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.incident {
+    background: url('/_imgs/ico_16_112.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.opportunity {
+    background: url('/_imgs/ico_16_3.gif') no-repeat center left;
+	padding-left: 20px;
+}
+a.pricelevel {
+    background: url('/_imgs/ico_16_1022.gif') no-repeat center left;
+	padding-left: 20px;
+}
+.openentity {
+	float: right;
+	width: 17px;
+	height: 16px;
+}
+.openentity a {
+	width: 17px;
+	height: 16px;
+	display: block;
+    background-repeat: no-repeat;
+}
+.icon-task {
+	background-position: -239px -103px; 
+}
+.icon-phone {
+	background-position: -239px -137px; 
+}
+.icon-appointment {
+	background-position: -35px -239px; 
+}
+.icon-order {
+	background-position: -273px -69px; 
+}
+.icon-letter {
+	background-position: -171px -1px; 
+}
+.icon-fax {
+	background-position: -1px -239px; 
+}
+.icon-email {
+	background-position: -103px -137px; 
+}
+.icon-opportunity {
+	background-position: -1px -1px; 
+}
+.icon-serviceactivity {
+	background-position: -171px -103px;
+}
+.icon-campaignresponse {
+	background-position: -1px -171px;
+}
+.icon-incident {
+	background-position: -171px -273px;
+}
+div.refresh {
+    background: transparent url('refresh.png') no-repeat;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+}
+#timelineMenu {
+    float: right;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+}
+.settingsMenu {
+    font-family: "Segoe UI",Arial,Sans-Serif;
+    font-size: 11px;
+	float: right;
+    position: absolute;
+    z-index: 9999;
+    background-color: white;
+    border: 1px solid gainsboro;
+    padding: 5px;
+}
+#timelineSettings {
+    top: 16px;
+    right: 20px;
+}
+#timelineDateSettings {
+    top: 16px;
+    right: 40px;
+    padding-right: 30px;
+}
+.settingsBlanket {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1;
+}
+#entityList {
+    font-family: "Segoe UI",Arial,Sans-Serif;
+    font-size: 11px;
+    background-color: white;
+    width: 200px;
+    list-style: none;
+    padding: 0;
+}
+.refreshButton {
+    background: transparent url('refresh.png') no-repeat;
+}
+.loadxnext {
+    background: transparent url('loadxnext.png') no-repeat;
+    width: 24px;
+}
+.loadxlast {
+    background: transparent url('loadxlast.png') no-repeat;
+    width: 24px;
+}
+.checkAll {
+    background-color: #d4d4d4;
+}
+.settingsButton {
+    background: transparent url('cog.png') no-repeat;
+}
+.dateSettingsButton {
+    background: transparent url('clock.png') no-repeat;
+}
+.stdButton {
+    overflow: hidden;
+    border: none;
+    cursor:pointer;
+    width: 16px;
+    height: 16px;
+    outline: 0; /* mainly a chrome fix*/
+}
+/* mainly a chrome fix */
+.noborder {
+    outline: none;
+}
+.stdButton:hover {
+    background-color: #D7EBF9;
+    border: none;
+}
+.stdButtonSelected {
+    background-color: #b1d6f0 !important;
+    border: none;
+}
+#message {
+	font-family: "Segoe UI",Arial,Sans-Serif;
+	font-size: 11px;
+	background: #fff19d;
+	border: #d7d889 1px solid;
+	padding: 5px;
+	margin-top: 5px;
+	min-height: 24px;
+}
+#message span {
+	background: url('timeline/css/information_icon.png') no-repeat 0px 0px;
+	height: 24px;
+	width: 24px;
+	display: block;
+	float: left;
+}
+#message div {
+	padding-left: 29px;
+}
+.flat-button {
+    position: relative;
+    vertical-align: top;
+    width: 80px;
+    height: 24px;
+    padding: 0;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #3498db;
+    border: 0;
+    border-bottom: 2px solid #2a8bcc;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px #2a8bcc;
+    box-shadow: inset 0 -2px #2a8bcc;
+}
+.flat-button:active {
+    top: 1px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+#timelineMessage {
+	font-family: "Segoe UI",Arial,Sans-Serif;
+	font-size: 11px;
+	background: #fff19d;
+	border: #d7d889 1px solid;
+	padding: 5px;
+	margin-top: 5px;
+	min-height: 24px;
+}
+
+#messageCurtain {
+	background: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 1000;
+}
+
+.flag-content {
+    word-wrap:break-word;
+}
+
+#currentDateRange {
+    display: inline-block;
+    top: -3px;
+    position: relative;
+    padding-right:5px;
+    color: gray;
+}

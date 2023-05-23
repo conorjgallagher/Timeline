@@ -1,0 +1,83 @@
+﻿Version 2.6
+Added paging to timeline
+
+Version 2.5
+Known issues update and general tweaks
+
+Version 2.4.1
+Bug fixes on Czech language pack
+
+Version 2.4
+Added Czech language support
+
+Version 2.3.1
+Fixed bug with formatted dates not working as expected
+
+Version 2.3
+Added ability to only display detail portion of the timeline. 
+Extended the config so that you can remove status if it's not applicable.
+Added ability to use multiple fields for the header
+Fixed some other minor issues
+
+Varsion 2.2.2
+Fixed some performance issues in how it was returning Top N records
+
+Version 2.2.1
+Fixed some issues with entity references introduced in 2015 update 1 
+
+Version 2.2
+Added a trial version of timeline
+
+Version 2.1
+Various updates for both 2013 and 2015
+
+Version 2.0
+Support for custom entities
+
+Version 1.0.2.4
+Include/Exclude entities using settings pick list
+
+Version 1.0.2.3
+Entities include/exclude parameter options
+
+Version 1.0.2.2
+CRM 2013 Minor fixes
+
+Version 1.0.2.1
+CRM 2013 Support
+
+Version 1.0.1.2
+Now supports the following entities on the timeline:
+• Appointment
+• Campaign Response
+• Case
+• E-mail
+• Fax
+• Letter
+• Opportunity
+• Order
+• Phone Call
+• Service Activity
+• Task
+
+Account Timeline records retrieved:
+• Where the account is set regarding
+• Where the account is set as the customer
+• Where the account is a participant in an activity party
+• Where any of the account's contacts are a participant in an activity party
+
+Contact Timeline records retrieved:
+• Where the contact is set regarding
+• Where the contact is set as the customer
+• Where the contact is a participant in an activity party
+
+Opportunity Timeline records retrieved:
+• Where the opportunity is set regarding
+
+Added support for positioning the timeline navigation at the top
+
+Version 1.0.0.4
+First release
+Support for Appointment, E-mail, Phone and Task activities
+Only records where the regarding had been set to the Account, Contact or Opportunity are included. 
+

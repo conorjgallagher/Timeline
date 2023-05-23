@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>xRM Consultancy Timeline Entity</title>
+		<meta name="description" content="xRM Consultancy Timeline">
+		<link href="timeline/css/MSCRMTimeline.css" rel="stylesheet" />
+	</head>
+	<body>
+		<script type="text/javascript" src="timeline/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../ClientGlobalContext.js.aspx"></script>
+		<script type="text/javascript" src="timeline/js/XrmServiceToolkit.js"></script>
+		<script type="text/javascript" src="timeline/js/timelineBuilder.js"></script>
+		<script type="text/javascript">
+		    var xRMC;
+		    $(function () {
+		        xRMC = window.parent.xRMC;
+		        var id = getParameterByName('id');
+		        var type = getParameterByName('type');
+
+		        var entityConfig = xRMC.timeline.getEntitySettings(type.toLowerCase());
+		        $('.wrapper').html(entityConfig.HTML);
+
+		        var entity = getEntity(id, type);
+		        var recordUrl = getEntityUrl(id, type);
+		        $('#recordURL').attr('href', recordUrl);
+		        var VMM = parent.VMM;
+		        if (typeof VMM != 'undefined' && typeof VMM.Language != 'undefined' && typeof VMM.Language.xrmc != 'undefined') {
+		            $('#recordURL').attr('title', VMM.Language.xrmc.OpenFullRecord);
+		        }
+		        $('.openentity').attr('style', 'background-image: url(timeline/img/popout.png)');
+		        $('.openentity').addClass('stdButton');
+		        $('.xRMC-Attribute').each(function () {
+		            try {
+		                var attribute = entity.attributes[$(this).attr('id')];
+		                if (attribute) {
+		                    if ($(this).hasClass('xRMC-PartyList')) {
+		                        if (attribute.value) {
+		                            for (var p = 0; p < attribute.value.length; p++) {
+		                                $(this).append(createEntityAnchor(attribute.value[p]) + ' ');
+		                            }
+		                        }
+		                    } else if ($(this).hasClass('xRMC-Reference')) {
+		                        $(this).append(createEntityAnchor(attribute));
+		                    } else if ($(this).hasClass('xRMC-Date')) {
+		                        $(this).append(getLongDateString(attribute.value));
+		                    } else if ($(this).hasClass('xRMC-FormattedValue')) {
+		                        $(this).append(entity.attributes[$(this).attr('id')].formattedValue);
+		                    } else if ($(this).hasClass('xRMC-Url')) {
+		                        $(this).append(createAnchor(attribute.value));
+		                    } else {
+		                        $(this).append(convertEscapesToHtml(attribute.value));
+		                    }
+		                } else {
+		                    if ($(this).hasClass('xRMC-ActivityDate')) {
+		                        $(this).append(getLongDateString(getActivityEndDate(entity)));
+		                    } else if ($(this).hasClass('xRMC-OpportunityDate')) {
+		                        $(this).append(getLongDateString(getOpportunityEndDate(entity)));
+		                    } else if ($(this).hasClass('xRMC-OpportunityValue')) {
+		                        $(this).append(getOpportunityValue(entity, type));
+		                    }
+		                }
+		            } catch (e) {
+		            }
+		        });
+		        $('.xRMC-AutoHide').each(function() {
+		            try {
+		                var attribute = entity.attributes[$(this).attr('for')];
+		                if (!attribute || !attribute.value || attribute.value == "") {
+		                    $(this).hide();
+		                }
+		            } catch(e) {
+		            }
+		        });
+		    });
+		</script>
+	    <div class="wrapper">
+	    </div>
+	</body>
+</html>

@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>Timeline for Microsoft Dynamics CRM - by xRM Consultancy</title>
+    <meta name="description" content="TimelineJS example">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link href="timeline/css/MSCRMTimeline.css" rel="stylesheet" />
+    <!-- Style-->
+    <style>
+        html, body {
+            height:100%;
+            padding: 0px;
+            margin: 0px;
+        }
+        .loaderdiv {
+          position: fixed;
+          z-index: 999;
+          height: 32px;
+          width: 32px;
+          margin: auto;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background-image: url('timeline/css/loading.gif');
+          background-size: contain;
+          opacity: 0.5;
+        }
+        #customRangeValue {
+            width: 55px;
+            margin-left: 10px;
+        }
+
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML elements--><!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+    <body>
+        <!-- BEGIN Timeline Embed -->
+        <div id="message" style="display:none;">
+    	    <span></span>
+    	    <div id="onCreate" style="display:none;">The Timeline is only available once a record has been saved.</div>
+    	    <div id="offline" style="display:none;">The Timeline is not available when offline.</div>
+        </div>
+        <div id="timelineMenu">
+            <div id="currentDateRange"></div>
+            <a href="#" onClick="toggleDateSettings();" tabindex="0" style="text-decoration: none;" class="noborder">
+                <img id="dateSettingsButton" src="/_imgs/imagestrips/transparent_spacer.gif" class="dateSettingsButton stdButton" alt="Date Settings" title="Date Settings">
+            </a>
+            <a href="#" onClick="toggleSettings();" tabindex="0" style="text-decoration: none;" class="noborder">
+                <img id="settingsButton" src="/_imgs/imagestrips/transparent_spacer.gif" class="settingsButton stdButton" alt="Settings" title="Settings">
+            </a>
+            <a href="#" onClick="window.location.reload(); return false;" tabindex="0" style="text-decoration: none;" class="noborder">
+                <img id="refreshTimelineButton" src="/_imgs/imagestrips/transparent_spacer.gif" class="refreshButton stdButton" alt="Refresh Timeline" title="Refresh Timeline">
+            </a>
+        </div>
+        <div id="timelineSettings" class="settingsMenu" style="display: none">
+            <div id="settingsBlanket" class="settingsBlanket"></div>
+            <ol id="entityList">
+                <li>
+                    <div class="checkAll">
+                        <input id="chk_all" name="0" type="checkbox" onClick="javascript:toggleAllEntitySettings();" /><label id="lblChkAll" for="chk_all">Select/Deselect all</label>
+                    </div>
+                </li>
+            </ol>
+            <input id="updateButton" type="submit" value="Update" class="flat-button" onclick="javascript: reloadTimeline();" />
+        </div>
+        <div id="timelineDateSettings" class="settingsMenu" style="display: none">
+            <div id="dateSettingsBlanket" class="settingsBlanket"></div>
+            <label><input id="monthRange" type="radio" name="daterange" value="30" class="dateRangeOptions"> 30 days<br></label>
+            <label><input id="quarterRange" type="radio" name="daterange" value="90" checked="checked" class="dateRangeOptions"> 90 days<br></label>
+            <label><input id="halfYearRange" type="radio" name="daterange" value="180" class="dateRangeOptions"> 180 days<br></label>
+            <label><input id="yearRange" type="radio" name="daterange" value="365" class="dateRangeOptions"> 1 year<br></label>
+            <label><input id="customRange" type="radio" name="daterange" value="" class="dateRangeOptions"> Custom range</label>
+            <input id="customRangeValue" type="text" name="daterangevalue" value="" disabled="disabled"><br>
+            <div id="invalidCustomRange" style="display:none;color:red">Enter a value between 1 and 999</div><br>
+            <br>
+            <input id="updateRangeButton" type="submit" value="Update" class="flat-button" onclick="javascript: dateUpdateClicked();" />
+        </div>
+        <div id="timeline-embed"></div>
+        <div class="loaderdiv"></div>
+        <script type="text/javascript" src="../ClientGlobalContext.js.aspx"></script>
+        <script type="text/javascript" src="timeline/js/XrmServiceToolkit.js"></script>
+        <script type="text/javascript" src="timeline/js/timelineBuilder.js"></script>
+        <script type="text/javascript" src="timeline/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            $('.settingsBlanket')
+                .click(
+                    function () {
+                        $("#timelineSettings").hide();
+                        $("#timelineDateSettings").hide();
+                        $(".settingsButton").removeClass("settingsButtonSelected");
+                    }
+                );
+            $('.dateRangeOptions').change(function () {
+                $("#customRangeValue").prop("disabled", !$("#customRange").is(':checked'));
+            });
+
+            var Settings = {};
+            Settings.timelinePosition = 'MSCRM';
+            var data = WebResource.GetDataParams();
+            for (var i in data) {
+                if (data[i][0]) {
+                    switch (data[i][0].toString().toLowerCase()) {
+                        case 'timelineposition':
+                            Settings.timelinePosition = data[i][1];
+                            break;
+                        case 'includeentities':
+                            xRMC.timeline.parseEntityData(data[i][1]);
+                            break;
+                        case 'dashboard':
+                            Settings.dashboard = data[i][1];
+                            break;
+                        case 'hideintroslide':
+                            Settings.hideintroslide = data[i][1];
+                            break;
+                        case 'lang':
+                            Settings.lang = data[i][1].trim();
+                            break;
+                        case 'days':
+                            if (isNaN(+data[i][1]) || +data[i][1] < 1) {
+                                xRMC.timeline.settings.daysparam = 90;
+                            } else {
+                                xRMC.timeline.settings.daysparam = +data[i][1];
+                            }
+                            xRMC.timeline.settings.days = Math.ceil(xRMC.timeline.settings.daysparam/2);
+                            break;
+                        case 'pageto':
+                            xRMC.timeline.settings.pageto = data[i][1];
+                            break;
+                        case 'startdate':
+                            xRMC.timeline.settings.startdate = new Date(data[i][1]);
+                            break;
+                        case 'enddate':
+                            xRMC.timeline.settings.enddate = new Date(data[i][1]);
+                            break;
+                        default:
+                            break                     }
+                }
+            }
+
+            if (Settings.timelinePosition == 'top') {
+                Settings.timelinePosition = 'MSCRMPositionTop';
+            } else if (Settings.timelinePosition == 'full') {
+                Settings.timelinePosition = 'MSCRMPositionFull';
+                Settings.markersLink = true;
+            }
+
+            if (xRMC.timeline.settings.daysparam === 30) {
+                $("#monthRange").prop("checked", true);
+            } else if (xRMC.timeline.settings.daysparam === 90) {
+                $("#quarterRange").prop("checked", true);
+            } else if (xRMC.timeline.settings.daysparam === 180) {
+                $("#halfYearRange").prop("checked", true);
+            } else if (xRMC.timeline.settings.daysparam === 365) {
+                $("#yearRange").prop("checked", true);
+            } else {
+                $("#customRange").prop("checked", true);
+                $("#customRangeValue").val(xRMC.timeline.settings.daysparam);
+                $("#customRangeValue").prop("disabled", false);
+            }
+
+            if (isOffline()) {
+                $("#message").show();
+                $("#offline").show();
+            }
+            else {
+                if (Settings.dashboard || (window.parent.Xrm.Page.data != null && typeof window.parent.Xrm.Page.data != "undefined")) {
+
+                    if (Settings.dashboard || window.parent.Xrm.Page.data.entity.getId()) {
+                        var timeline_config;
+                        var Xrm = window.parent.Xrm;
+                        generateData();
+                        var allChecked = true;
+                        for (var key in xRMC.timeline.settings.entities) {
+                            if (key != 'undefined') {
+                                if (xRMC.timeline.settings.entities.hasOwnProperty(key) && EntityTypeMap[key]) {
+                                    $('#entityList').append('<li><input id="chk_' + key + '" name="' + key + '" class="settingsCheckBox" type="checkbox" onClick="entitySettingClick(this.id)" /><label for="chk_' + key + '">' + EntityTypeMap[key].description + '</label></li>');
+                                    $('#chk_' + key).prop('checked', xRMC.timeline.settings.entities[key].include);
+                                    if (!xRMC.timeline.settings.entities[key].include) {
+                                        allChecked = false;
+                                    }
+                                }
+                            }
+                        }
+                        if (allChecked) {
+                            $("#chk_all").prop('checked', true);
+                        }
+                    } else {
+                        $("#timelineMenu").hide();
+                        $("#message").show();
+                        $("#onCreate").show();
+                    }
+                }
+            }
+
+            function isOffline() {
+                var context = window.parent.Xrm.Page.context;
+                if (context.client && context.client.getClientState() == 'Offline') {
+                    return true;
+                } else if (context.isOutlookClient && context.isOutlookClient() && !context.isOutlookOnline()) {
+                    return true;
+                }
+                return false;
+            }
+
+            function generateData() {
+                if (Settings.dashboard) {
+                    xRMC.timeline.buildTimeline(Settings.dashboard);
+                } else {
+                    xRMC.timeline.buildTimeline(Xrm.Page.data.entity.getEntityName(), Xrm.Page.data.entity.getId());
+                }
+                loadGeneratedData();
+            }
+            function loadGeneratedData() {
+                var startAtToday = true;
+                var startAtSlide = 0;
+                var startAtEnd = false;
+                if (xRMC.timeline.settings.pageto == 'end') {
+                    startAtToday = false;
+                    startAtEnd = true;
+                }
+                if (xRMC.timeline.settings.pageto == 'start') {
+                    startAtToday = false;
+                    startAtSlide = 2;
+                }
+                timeline_config = {
+                    width: "100%",
+                    height: "100%",
+                    source: xRMC.timeline.data,
+                    font: Settings.timelinePosition,
+                    start_at_today: startAtToday,
+                    start_at_slide: startAtSlide,
+                    start_at_end: startAtEnd,
+                    markersLink: Settings.markersLink
+                };
+                if(Settings.lang) {
+                    timeline_config.lang = Settings.lang;
+                }
+            }
+            function entitySettingClick(id) {
+                if ($("#" + id).prop('checked')) {
+                    xRMC.timeline.settings.entities[$("#" + id).attr('name')].include = true;
+                } else {
+                    xRMC.timeline.settings.entities[$("#" + id).attr('name')].include = false;
+                }
+            }
+            function toggleAllEntitySettings() {
+                var newCheckValue = false;
+                if ($("#chk_all").prop('checked')) {
+                    newCheckValue = true;
+                }
+                $(".settingsCheckBox").each(function () {
+                    $(this).prop('checked', newCheckValue);
+                    xRMC.timeline.settings.entities[$(this).attr('name')].include = newCheckValue;
+                });
+            }
+            function reloadTimeline() {
+                window.location = window.location.pathname + '?' + WebResource.CreateDataParams();
+            }
+            function toggleSettings() {
+                if ($(".settingsButton").hasClass("settingsButtonSelected")) {
+                    $(".settingsButton").removeClass("settingsButtonSelected");
+                    $("#timelineSettings").toggle(10);
+                } else {
+                    $(".settingsButton").addClass("settingsButtonSelected");
+                    $("#timelineSettings").toggle(10);
+                }
+            };
+            function dateUpdateClicked() {
+                if ($("#monthRange").prop("checked")) {
+                    xRMC.timeline.settings.days = 15;
+                    xRMC.timeline.settings.daysparam = 30;
+                }
+                if ($("#quarterRange").prop("checked")) {
+                    xRMC.timeline.settings.days = 45;
+                    xRMC.timeline.settings.daysparam = 90;
+                }
+                if ($("#halfYearRange").prop("checked")) {
+                    xRMC.timeline.settings.days = 90;
+                    xRMC.timeline.settings.daysparam = 180;
+                }
+                if ($("#yearRange").prop("checked")) {
+                    xRMC.timeline.settings.days = 183;
+                    xRMC.timeline.settings.daysparam = 365;
+                }
+                if ($("#customRange").prop("checked")) {
+                    if (isNaN($("#customRangeValue").val()) || $("#customRangeValue").val() < 1 || $("#customRangeValue").val() > 999) {
+                        $("#invalidCustomRange").show();
+                        return;
+                    } else {
+                        $("#invalidCustomRange").hide();
+                    }
+                    var range = +$("#customRangeValue").val();
+                    xRMC.timeline.settings.days = Math.ceil(range / 2);
+                    xRMC.timeline.settings.daysparam = range;
+                }
+                $("#customRange").prop("checked", true);
+                $("#customRangeValue").val(xRMC.timeline.settings.daysparam);
+                $("#customRangeValue").prop("disabled", !$(this).is(':checked'));
+                var midpoint = new Date((xRMC.timeline.settings.startdate.getTime() + xRMC.timeline.settings.enddate.getTime()) / 2);
+                xRMC.timeline.settings.startdate = new Date(midpoint);
+                xRMC.timeline.settings.startdate.setDate(midpoint.getDate() - xRMC.timeline.settings.days);
+                xRMC.timeline.settings.enddate = new Date(midpoint);
+                xRMC.timeline.settings.enddate.setDate(midpoint.getDate() + xRMC.timeline.settings.days);
+                reloadTimeline();
+            }
+            function toggleDateSettings() {
+                if ($(".dateSettingsButton").hasClass("settingsButtonSelected")) {
+                    $(".dateSettingsButton").removeClass("settingsButtonSelected");
+                    $("#timelineDateSettings").toggle(10);
+                } else {
+                    $(".dateSettingsButton").addClass("settingsButtonSelected");
+                    $("#timelineDateSettings").toggle(10);
+                }
+            };
+            $(document).ready(function () {
+                $(".loaderdiv").hide();
+            });
+        </script>
+      <script type="text/javascript" src="timeline/js/storyjsembed.js"></script>
+      <script type="text/javascript">
+          $(window).on('load', function () {
+              if (typeof VMM != 'undefined' && typeof VMM.Language != 'undefined' && typeof VMM.Language.xrmc != 'undefined') {
+                  $("#lblChkAll").html(VMM.Language.xrmc.SelectDeselect);
+                  $("#updateButton").val(VMM.Language.xrmc.Update);
+                  $("#refreshTimelineButton").attr("title", VMM.Language.xrmc.RefreshTimeline);
+                  $("#refreshTimelineButton").attr("alt", VMM.Language.xrmc.RefreshTimeline);
+                  $("#settingsButton").attr("title", VMM.Language.xrmc.Settings);
+                  $("#settingsButton").attr("alt", VMM.Language.xrmc.Settings);
+              }
+          });
+      </script>
+      <!-- END Timeline Embed-->
+    </body>
+</html>

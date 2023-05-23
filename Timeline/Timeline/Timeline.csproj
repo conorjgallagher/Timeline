@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18812C17-E42F-41D9-BE8D-8367DB14A1EE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Timeline</RootNamespace>
+    <AssemblyName>Timeline</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MSCRMPositionFull.css" />
+    <Content Include="ReleaseNotes.txt" />
+    <Content Include="timeline\css\clock.png" />
+    <Content Include="timeline\css\cog.png" />
+    <Content Include="timeline\css\themes\font\MSCRM.css" />
+    <Content Include="timeline\img\campaignresponse_32.png" />
+    <Content Include="timeline\css\loadxlast.png" />
+    <Content Include="timeline\css\loadxnext.png" />
+    <Content Include="timeline\img\logo.png" />
+    <Content Include="timeline\img\popout.png" />
+    <Content Include="timeline\css\refresh.png" />
+    <Content Include="timeline\css\themes\font\MSCRMPositionTop.css" />
+    <Content Include="timeline\js\json2.js" />
+    <Content Include="timeline\js\sdk_rest.js" />
+    <Content Include="timeline\js\timelineBuilder.full.js" />
+    <Content Include="timeline\js\timelineBuilder.js" />
+    <Content Include="MSCRMPositionTop.css" />
+    <Content Include="TimelineEntity.html" />
+    <Content Include="timeline\css\loading.gif" />
+    <Content Include="timeline\css\MSCRMTimeline.css" />
+    <Content Include="timeline\css\themes\dark.css" />
+    <Content Include="timeline\css\themes\font\AbrilFatface-Average.css" />
+    <Content Include="timeline\css\themes\font\Arvo-PTSans.css" />
+    <Content Include="timeline\css\themes\font\Bevan-PotanoSans.css" />
+    <Content Include="timeline\css\themes\font\BreeSerif-OpenSans.css" />
+    <Content Include="timeline\css\themes\font\DroidSerif-DroidSans.css" />
+    <Content Include="timeline\css\themes\font\Georgia-Helvetica.css" />
+    <Content Include="timeline\css\themes\font\Lekton-Molengo.css" />
+    <Content Include="timeline\css\themes\font\Lora-Istok.css" />
+    <Content Include="timeline\css\themes\font\Merriweather-NewsCycle.css" />
+    <Content Include="timeline\css\themes\font\NewsCycle-Merriweather.css" />
+    <Content Include="timeline\css\themes\font\NixieOne-Ledger.css" />
+    <Content Include="timeline\css\themes\font\Pacifico-Arimo.css" />
+    <Content Include="timeline\css\themes\font\PlayfairDisplay-Muli.css" />
+    <Content Include="timeline\css\themes\font\PoiretOne-Molengo.css" />
+    <Content Include="timeline\css\themes\font\PT.css" />
+    <Content Include="timeline\css\themes\font\PTSerif-PTSans.css" />
+    <Content Include="timeline\css\themes\font\Rancho-Gudea.css" />
+    <Content Include="timeline\css\themes\font\SansitaOne-Kameron.css" />
+    <Content Include="timeline\css\themes\timeline-dark.png" />
+    <Content Include="timeline\css\themes\timeline-texture.png" />
+    <Content Include="timeline\css\timeline.css" />
+    <Content Include="timeline\css\timeline.png" />
+    <Content Include="timeline\css\TimelineEntityIcons.png" />
+    <Content Include="timeline\js\jquery.min.js" />
+    <Content Include="timeline\js\locale\ar.js" />
+    <Content Include="timeline\js\locale\bg.js" />
+    <Content Include="timeline\js\locale\ca.js" />
+    <Content Include="timeline\js\locale\cz.js" />
+    <Content Include="timeline\js\locale\de.js" />
+    <Content Include="timeline\js\locale\dk.js" />
+    <Content Include="timeline\js\locale\el.js" />
+    <Content Include="timeline\js\locale\en.js" />
+    <Content Include="timeline\js\locale\es.js" />
+    <Content Include="timeline\js\locale\fo.js" />
+    <Content Include="timeline\js\locale\fr.js" />
+    <Content Include="timeline\js\locale\hu.js" />
+    <Content Include="timeline\js\locale\hy.js" />
+    <Content Include="timeline\js\locale\id.js" />
+    <Content Include="timeline\js\locale\is.js" />
+    <Content Include="timeline\js\locale\it.js" />
+    <Content Include="timeline\js\locale\ja.js" />
+    <Content Include="timeline\js\locale\kr.js" />
+    <Content Include="timeline\js\locale\nl.js" />
+    <Content Include="timeline\js\locale\no.js" />
+    <Content Include="timeline\js\locale\pl.js" />
+    <Content Include="timeline\js\locale\pt-br.js" />
+    <Content Include="timeline\js\locale\pt.js" />
+    <Content Include="timeline\js\locale\ru.js" />
+    <Content Include="timeline\js\locale\sk.js" />
+    <Content Include="timeline\js\locale\sl.js" />
+    <Content Include="timeline\js\locale\ta.js" />
+    <Content Include="timeline\js\locale\tl.js" />
+    <Content Include="timeline\js\locale\tr.js" />
+    <Content Include="timeline\js\locale\zh-ch.js" />
+    <Content Include="timeline\js\locale\zh-tw.js" />
+    <Content Include="timeline\js\storyjsembed.js" />
+    <Content Include="timeline\js\timeline.js" />
+    <Content Include="Timeline.html" />
+    <Content Include="timeline\js\TimelineConfig.js" />
+    <Content Include="timeline\js\XrmServiceToolkit.js" />
+    <Content Include="Timeline_Config.html" />
+    <Content Include="Timeline_Terms_Conditions.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mscrm.jsonp" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3903</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4525/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y "$(ProjectDir)*.html" "$(SolutionDir)CrmPackage\WebResources\Web Page (HTML)"
+xcopy /Y "$(ProjectDir)timeline\css\*.css" "$(SolutionDir)CrmPackage\WebResources\Style Sheet (CSS)"
+xcopy /Y "$(ProjectDir)timeline\css\themes\dark.css" "$(SolutionDir)CrmPackage\WebResources\Style Sheet (CSS)"
+xcopy /Y "$(ProjectDir)timeline\css\themes\font\MSCRM.css" "$(SolutionDir)CrmPackage\WebResources\Style Sheet (CSS)"
+xcopy /Y "$(ProjectDir)timeline\js\*.js" "$(SolutionDir)CrmPackage\WebResources\Script (JScript)"
+xcopy /Y "$(ProjectDir)timeline\js\locale\en.js" "$(SolutionDir)CrmPackage\WebResources\Script (JScript)"
+xcopy /Y "$(ProjectDir)timeline\css\*.png" "$(SolutionDir)CrmPackage\WebResources\PNG Format"
+xcopy /Y "$(ProjectDir)timeline\css\*.gif" "$(SolutionDir)CrmPackage\WebResources\GIF Format"
+xcopy /Y "$(ProjectDir)timeline\img\*.png" "$(SolutionDir)CrmPackage\WebResources\PNG Format"
+xcopy /Y "$(ProjectDir)timeline\img\*.gif" "$(SolutionDir)CrmPackage\WebResources\GIF Format"
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>"$(SolutionDir)External DLLs\jsmin" &lt;"$(SolutionDir)timeline\timeline\js\timelineBuilder.full.js" &gt;"$(SolutionDir)timeline\timeline\js\timelineBuilder.js"
+</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

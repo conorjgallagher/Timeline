@@ -1,0 +1,134 @@
+storyjs_jsonp_data = {
+    "timeline":
+    {
+        "headline":"CRM Activity Timeline",
+        "type":"default",
+		"text":"By xRM Consultancy, <a href=\"http://www.xrmconsultancy.com\">www.xrmconsultancy.com</a>",
+		"startDate":"2012,1,26",
+        "date": [
+            {
+                "startDate":"2011,2,13,11,34",
+				"endDate":"2011,2,13,11,34",
+                "headline":"Email Subject - what if the subject was really long and took up a lot of space?",
+                "text":"<strong>Status:</strong> Sent",
+                "asset":
+                {
+                    "media":"<!-- CRM Email --><iframe frameborder=0 class=media-frame src=CRMEmail.html></iframe>",
+                    "credit":"",
+                    "caption":"<strong>Attachments: </strong><a href=\"#\">Name of attachment</a>, <a href=\"#\">Name of attachment 2</a>"
+                }
+            },
+            {
+                "startDate":"2012,1,26,10,35",
+				"endDate":"2012,1,26,10,35",
+                "headline":"Task Subject",
+                "text":"<strong>Status:</strong> Completed",
+                "asset":
+                {
+                    "media":"<!-- CRM Task --><iframe frameborder=0 class=media-frame src=CRMTask.html></iframe>",
+                    "credit":"",
+                    "caption":"This is the caption, could it be a <a href=\"#\">Link</a>"
+                }
+            },
+            {
+                "startDate":"2012,2,13,11,34",
+				"endDate":"2012,2,13,15,34",
+                "headline":"Appointment Subject - what if the subject was really long and took up a lot of space?",
+                "text":"<strong>Status:</strong> Open",
+                "asset":
+                {
+                    "media":"<!-- CRM Appointment --><iframe frameborder=0 class=media-frame src=CRMAppointment.html></iframe>",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+            {
+                "startDate":"2012,2,13,11,35",
+				"endDate":"2012,2,13,11,35",
+                "headline":"Letter Subject - what if the subject was really long and took up a lot of space?",
+                "text":"<strong>Status:</strong> Completed",
+                "asset":
+                {
+                    "media":"<!-- CRM Letter --><iframe frameborder=0 class=media-frame src=CRMLetter.html></iframe>",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+            {
+                "startDate":"2012,3,13,11,35",
+				"endDate":"2012,3,13,11,35",
+                "headline":"Fax Subject - what if the subject was really long and took up a lot of space?",
+                "text":"<strong>Status:</strong> Completed",
+                "asset":
+                {
+                    "media":"<!-- CRM Fax --><iframe frameborder=0 class=media-frame src=CRMFax.html></iframe>",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+            {
+                "startDate":"2012,2,14,11,35",
+				"endDate":"2012,2,14,15,35",
+                "headline":"Phone Subject - what if the subject was really long and took up a lot of space?",
+                "text":"<strong>Status:</strong> Completed",
+                "asset":
+                {
+                    "media":"<!-- CRM Phone Call --><iframe frameborder=0 class=media-frame src=CRMPhoneCall.html></iframe>",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+            {
+                "startDate":"2012,5,14",
+				"endDate":"2012,7,14",
+                "headline":"Opportunity Topic - what if the subject was really long and took up a lot of space?",
+                "text":"<strong>Status:</strong> Open",
+                "asset":
+                {
+                    "media":"<!-- CRM Opportunity --><iframe frameborder=0 class=media-frame src=CRMOpportunity.html></iframe>",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+            {
+                "startDate":"2012,6,14",
+				"endDate":"2012,6,14",
+                "headline":"Order Name here",
+                "text":"<strong>Status:</strong> Completed",
+                "asset":
+                {
+                    "media":"<!-- CRM Order --><iframe frameborder=0 class=media-frame src=CRMOrder.html></iframe>",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+            {
+                "startDate":"2012,6,16",
+                "endDate":"2012,6,16",
+                "headline":"Service Activity subject",
+                "text":"<strong>Status:</strong> Open",
+                "asset":
+                {
+                    "media":"<!-- CRM Service Activity --><iframe frameborder=0 class=media-frame src=CRMServiceActivity.html></iframe>",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+            {
+                "startDate":"2012,6,4",
+                "endDate":"2012,6,4",
+                "headline":"Campaign Response Subject",
+                "text":"<strong>Status:</strong> Open",
+                "asset":
+                {
+                    "media":"<!-- CRM Campaign Response --><iframe frameborder=0 class=media-frame src=CRMCampaignResponse.html></iframe>",
+                    "credit":"",
+                    "caption":""
+                }
+            }
+
+            
+            
+        ]
+    }
+}

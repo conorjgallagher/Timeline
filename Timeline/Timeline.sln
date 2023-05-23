@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timeline", "Timeline\Timeline.csproj", "{18812C17-E42F-41D9-BE8D-8367DB14A1EE}"
+EndProject
+Project("{88A30576-7583-4F75-8136-5EFD2C14ADFF}") = "CrmPackage", "CrmPackage\CrmPackage.csproj", "{76E4F4AE-915F-4555-BDB1-47E3DD4D7D64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External DLLs", "External DLLs", "{313B1003-8507-4FCD-9D2F-AD441A2BCC42}"
+	ProjectSection(SolutionItems) = preProject
+		External DLLs\jsmin.exe = External DLLs\jsmin.exe
+		External DLLs\Microsoft.Xrm.Sdk.dll = External DLLs\Microsoft.Xrm.Sdk.dll
+		External DLLs\minify.bat = External DLLs\minify.bat
+		External DLLs\SeriousBit.Licensing.dll = External DLLs\SeriousBit.Licensing.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins", "Plugins\Plugins.csproj", "{96619807-E86B-4552-8CF3-530261534189}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18812C17-E42F-41D9-BE8D-8367DB14A1EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18812C17-E42F-41D9-BE8D-8367DB14A1EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18812C17-E42F-41D9-BE8D-8367DB14A1EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18812C17-E42F-41D9-BE8D-8367DB14A1EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E4F4AE-915F-4555-BDB1-47E3DD4D7D64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E4F4AE-915F-4555-BDB1-47E3DD4D7D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E4F4AE-915F-4555-BDB1-47E3DD4D7D64}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{76E4F4AE-915F-4555-BDB1-47E3DD4D7D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E4F4AE-915F-4555-BDB1-47E3DD4D7D64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E4F4AE-915F-4555-BDB1-47E3DD4D7D64}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{96619807-E86B-4552-8CF3-530261534189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96619807-E86B-4552-8CF3-530261534189}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96619807-E86B-4552-8CF3-530261534189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96619807-E86B-4552-8CF3-530261534189}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://xrmconsultancy.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CrmPackage\\CrmPackage.csproj
+		SccProjectName1 = CrmPackage
+		SccLocalPath1 = CrmPackage
+		SccProjectUniqueName2 = Timeline\\Timeline.csproj
+		SccProjectName2 = Timeline
+		SccLocalPath2 = Timeline
+		SccProjectUniqueName3 = Plugins\\Plugins.csproj
+		SccProjectName3 = Plugins
+		SccLocalPath3 = Plugins
+	EndGlobalSection
+	GlobalSection(CRMSolutionProperties) = preSolution
+		SolutionIsBoundToCRM = True
+	EndGlobalSection
+EndGlobal
